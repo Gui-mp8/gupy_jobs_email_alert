@@ -1,5 +1,5 @@
 from utils.config import load_config
-from scraper.web_scraper import WebScraper
+from scraper.modules.web_scraper import WebScraper
 
 def main(config):
     return print(WebScraper(config).extract_data_to_json())
