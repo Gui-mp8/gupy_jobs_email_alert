@@ -10,7 +10,7 @@ class WebScraper:
     def soup(self) -> BeautifulSoup:
         response = requests.get(url=self.url)
         return BeautifulSoup(response.content, 'html.parser')
-    
+
     def extract_data_to_json(self) -> List[Dict[str, Any]]:
         job_blocks = self.soup().find_all('div', class_="sc-jqUVSM gjodCt sc-70b75bd4-2 kwKQYT")
         data_list = [

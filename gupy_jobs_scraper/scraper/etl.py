@@ -23,16 +23,16 @@ class Etl(WebScraper):
         ]
 
         return data_list
-    
+
     def data_filter(self) -> List[Dict[str,Any]]:
         today = date.today().strftime('%Y-%m-%d')
         filtered_data = [
-            data 
+            data
             for data in self.change_type()
             if data['job_date_creation'] == today
         ]
 
         return filtered_data
-    
+
     def etl_result(self) -> List[Dict[str,Any]]:
         return self.data_filter()
