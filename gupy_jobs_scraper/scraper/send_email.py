@@ -1,0 +1,39 @@
+from utils.config import load_config
+
+import smtplib
+import ssl
+from email.message import EmailMessage
+from datetime import date
+
+class SendEmail():
+    def __init__(self, config) -> None:
+        self.user_email = config["user_email"]
+        self.password = config["password"]
+        self.receiver_email = config["receiver_email"]
+        self.message = EmailMessage()
+
+    def create_email(self, json_data):
+        today = date.today().strftime('%Y-%m-%d')
+
+        self.message['From'] = self.user_email
+        self.message['To'] = self.receiver_email
+        self.message['Subject'] = f'Gupy Vagas {today}'
+
+        body = f'''Vagas de hoje:\n'''
+
+        # Iterate over the list of JSON data and append each item's text representation to the body
+        for data in json_data:
+            body += f"Empresa:{data['company_name']}/Cargo:{data['job_name']}/Tipo:{data['job_type']}/Localidade:{data['job_location']} \n"
+
+        self.message.set_content(body)
+        context = ssl.create_default_context()
+
+        return context
+
+
+    def send_email(self, json_data):
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=self.create_email(json_data)) as smtp:
+            smtp.login(self.user_email, self.password)
+            smtp.sendmail(self.user_email, self.receiver_email, self.message.as_string())
+
+        return print("Email sent successfully!")
