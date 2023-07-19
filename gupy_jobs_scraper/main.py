@@ -6,7 +6,7 @@ from typing import Dict, List, Any
 
 def main(config: Dict[str,Any]) -> List[Dict[str,Any]]:
     json_data = Etl(config).etl_result()
-    return SendEmail(config).send_email(json_data)
+    return SendEmail(config, json_data).send_email()
 
 if __name__ == "__main__":
     config = load_config()
