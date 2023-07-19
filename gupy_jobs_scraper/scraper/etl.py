@@ -3,13 +3,14 @@ from scraper.web_scraper import WebScraper
 from datetime import datetime
 from datetime import date
 import json
+from typing import Dict,List,Any
 
 class Etl(WebScraper):
-    def __init__(self, config) -> None:
+    def __init__(self, config: Dict[str, Any]) -> None:
         super().__init__(config)
         self.json_data = WebScraper(config).extract_data_to_json()
 
-    def change_type(self):
+    def change_type(self) -> List[Dict[str,Any]]:
         data_list = [
             {
                 'company_name': data['company_name'],
@@ -23,7 +24,7 @@ class Etl(WebScraper):
 
         return data_list
     
-    def data_filter(self):
+    def data_filter(self) -> List[Dict[str,Any]]:
         today = date.today().strftime('%Y-%m-%d')
         filtered_data = [
             data 
@@ -33,5 +34,5 @@ class Etl(WebScraper):
 
         return filtered_data
     
-    def etl_result(self):
+    def etl_result(self) -> List[Dict[str,Any]]:
         return self.data_filter()
