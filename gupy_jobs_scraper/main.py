@@ -1,8 +1,8 @@
 from utils.config import load_config
-from scraper.modules.web_scraper import WebScraper
+from scraper.etl import Etl
 
 def main(config):
-    return print(WebScraper(config).extract_data_to_json())
+    return print(Etl(config).etl_result())
 
 if __name__ == "__main__":
     config = load_config()
