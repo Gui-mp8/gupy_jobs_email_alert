@@ -19,15 +19,35 @@ class SendEmail():
         self.message['To'] = self.receiver_email
         self.message['Subject'] = f'Gupy Vagas {today}'
 
-        body = f'''Vagas de hoje:\n'''
+        # Create a HTML table to display the job data
+        body = f'''
+            <h2>Vagas de hoje:</h2>
+            <table border="1">
+                <tr>
+                    <th>Empresa</th>
+                    <th>Cargo</th>
+                    <th>Tipo</th>
+                    <th>Localidade</th>
+                </tr>
+        '''
 
-        # Iterate over the list of JSON data and append each item's text representation to the body
+        # Iterate over the list of JSON data and add each job's data as a row in the table
         for data in json_data:
-            body += f"Empresa:{data['company_name']}/Cargo:{data['job_name']}/Tipo:{data['job_type']}/Localidade:{data['job_location']} \n"
+            body += f'''
+                <tr>
+                    <td>{data['company_name']}</td>
+                    <td>{data['job_name']}</td>
+                    <td>{data['job_type']}</td>
+                    <td>{data['job_location']}</td>
+                </tr>
+            '''
 
-        self.message.set_content(body)
+        body += '</table>'
+
+        # Set the content type to 'text/html' to use HTML formatting in the email body
+        self.message.add_alternative(body, subtype='html')
+
         context = ssl.create_default_context()
-
         return context
 
 
