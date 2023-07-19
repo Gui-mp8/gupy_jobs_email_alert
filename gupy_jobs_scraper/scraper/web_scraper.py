@@ -24,7 +24,7 @@ class WebScraper():
             for job_block in job_blocks
         ]
 
-        return json.dumps(data_list)
+        return data_list
 
 # config = load_config()
 # url = f"https://portal.gupy.io/job-search/term={config['research']}"
