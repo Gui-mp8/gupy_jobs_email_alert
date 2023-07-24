@@ -2,7 +2,6 @@ from scraper.web_scraper import WebScraper
 
 from datetime import datetime
 from datetime import date
-import json
 from typing import Dict,List,Any
 
 class Etl(WebScraper):
@@ -17,7 +16,8 @@ class Etl(WebScraper):
                 'job_name': data['job_name'],
                 'job_location': data['job_location'],
                 'job_type': data['job_type'],
-                'job_date_creation': datetime.strptime(data['job_date_creation'].replace('/', '-'), '%d-%m-%Y').date().strftime('%Y-%m-%d')
+                'job_date_creation': datetime.strptime(data['job_date_creation'].replace('/', '-'), '%d-%m-%Y').date().strftime('%Y-%m-%d'),
+                'job_link': data['job_link']
             }
             for data in self.json_data
         ]
@@ -35,4 +35,5 @@ class Etl(WebScraper):
         return filtered_data
 
     def etl_result(self) -> List[Dict[str,Any]]:
+        print(self.data_filter())
         return self.data_filter()
