@@ -2,7 +2,6 @@ from scraper.web_scraper import WebScraper
 
 from datetime import datetime
 from datetime import date
-import json
 from typing import Dict,List,Any
 
 class Etl(WebScraper):
@@ -36,4 +35,5 @@ class Etl(WebScraper):
         return filtered_data
 
     def etl_result(self) -> List[Dict[str,Any]]:
+        print(self.data_filter())
         return self.data_filter()
