@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run the Python application
-CMD ["python3", "gupy_jobs_scraper/main.py"]
+CMD ["python3", "src/main.py"]

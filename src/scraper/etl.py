@@ -17,7 +17,8 @@ class Etl(WebScraper):
                 'job_name': data['job_name'],
                 'job_location': data['job_location'],
                 'job_type': data['job_type'],
-                'job_date_creation': datetime.strptime(data['job_date_creation'].replace('/', '-'), '%d-%m-%Y').date().strftime('%Y-%m-%d')
+                'job_date_creation': datetime.strptime(data['job_date_creation'].replace('/', '-'), '%d-%m-%Y').date().strftime('%Y-%m-%d'),
+                'job_link': data['job_link']
             }
             for data in self.json_data
         ]

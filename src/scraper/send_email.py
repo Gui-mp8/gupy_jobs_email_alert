@@ -30,6 +30,7 @@ class SendEmail():
                     <th>Cargo</th>
                     <th>Tipo</th>
                     <th>Localidade</th>
+                    <th>Link da Vaga</th>
                 </tr>
         '''
 
@@ -41,6 +42,7 @@ class SendEmail():
                     <td>{data['job_name']}</td>
                     <td>{data['job_type']}</td>
                     <td>{data['job_location']}</td>
+                    <td>{data['job_link']}</td>
                 </tr>
             '''
 
