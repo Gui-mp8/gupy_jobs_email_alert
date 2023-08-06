@@ -1,13 +1,10 @@
-from scraper.web_scraper import WebScraper
-
 from datetime import datetime
 from datetime import date
 from typing import Dict,List,Any
 
-class Etl(WebScraper):
-    def __init__(self, config: Dict[str, Any]) -> None:
-        super().__init__(config)
-        self.json_data = WebScraper(config).extract_data_to_json()
+class Transform():
+    def __init__(self, json_data: Dict[str, Any]) -> None:
+        self.json_data = json_data
 
     def change_type(self) -> List[Dict[str,Any]]:
         data_list = [
@@ -21,7 +18,8 @@ class Etl(WebScraper):
             }
             for data in self.json_data
         ]
-
+        print('Data Treated part 1')
+        print(data_list)
         return data_list
 
     def data_filter(self) -> List[Dict[str,Any]]:
@@ -31,9 +29,12 @@ class Etl(WebScraper):
             for data in self.change_type()
             if data['job_date_creation'] == today
         ]
-
+        print('Data Treated part 2')
+        print(filtered_data)
+        print()
         return filtered_data
 
     def etl_result(self) -> List[Dict[str,Any]]:
+        print()
         print(self.data_filter())
         return self.data_filter()

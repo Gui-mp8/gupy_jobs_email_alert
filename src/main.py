@@ -1,11 +1,13 @@
 from utils.config import load_config
-from scraper.etl import Etl
-from scraper.send_email import SendEmail
+from scraper.web_scraper import WebScraper
+from transformation.transformation import Transform
+from send_email.send_email import SendEmail
 
 from typing import Dict, List, Any
 
 def main(config: Dict[str,Any]) -> List[Dict[str,Any]]:
-    json_data = Etl(config).etl_result()
+    data = WebScraper(config).extract_data_to_json()
+    json_data = Transform(json_data=data).data_filter()
     return SendEmail(config, json_data).send_email()
 
 if __name__ == "__main__":
