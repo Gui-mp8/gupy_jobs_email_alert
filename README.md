@@ -34,3 +34,12 @@ It's only necessary to change the config.json key values to your respective data
 - user_email: Is the email of Who'll send the email.
 - password: Your Google App password, that it's generated after the guide at the **Prerequisites**.
 - the email that'll receive the message.
+
+## Running the Program
+
+```
+docker build -t gupy-jobs-alert .
+```
+```
+docker run gupy-jobs-alert
+```
