@@ -1,6 +1,6 @@
 # Gupy job alert
 
-This project has the goal to send a daily email alert from the desired jobs that you looking for.
+This project has the goal to send a daily email alert from the jobs that you looking for.
 
 ## Previous Information
 It's necessary to install the [chrome-driver](https://chromedriver.chromium.org/downloads). Check your chrome atualization.
