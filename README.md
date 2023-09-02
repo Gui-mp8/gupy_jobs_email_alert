@@ -42,19 +42,10 @@ It's necessary to install the [chrome-driver](https://chromedriver.chromium.org/
 - **DOCKER_USERNAME**: It's your Docker Hub login
 - **DOCKER_PASSWORD**: It's your Docker Hub password
 
-## Execution
+## Running the Program
 
 After setting config.json and .env, just run the code below
 
 ```
 make run
-```
-
-## Running the Program
-
-```
-docker build -t gupy-jobs-alert .
-```
-```
-docker run gupy-jobs-alert
 ```
