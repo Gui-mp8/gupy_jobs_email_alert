@@ -2,9 +2,6 @@
 
 This project has the goal to send an email alert from the desired jobs that you want.
 
-## Previous Information
-It's necessary to install the [chrome-driver](https://chromedriver.chromium.org/downloads). Check your chrome atualization.
-
 ## Tecnologies
   <table>
     <tr>
