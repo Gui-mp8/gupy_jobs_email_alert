@@ -1,6 +1,7 @@
 from datetime import datetime
 from datetime import date
 from typing import Dict,List,Any
+import time
 
 class Transform():
     def __init__(self, json_data: Dict[str, Any]) -> None:
@@ -19,22 +20,21 @@ class Transform():
             for data in self.json_data
         ]
         print('Data Treated part 1')
-        print(data_list)
+        # print(data_list)
         return data_list
 
-    def data_filter(self) -> List[Dict[str,Any]]:
+    def data_filter(self) -> List[Dict[str, Any]]:
         today = date.today().strftime('%Y-%m-%d')
-        filtered_data = [
-            data
-            for data in self.change_type()
-            if data['job_date_creation'] == today
-        ]
-        print('Data Treated part 2')
+        filtered_data = list(
+            filter(
+                lambda data: data['job_date_creation'] == today,
+                self.change_type()
+            )
+        )
+        print(f'Data Treated part 2')
         print(filtered_data)
         print()
         return filtered_data
 
     def etl_result(self) -> List[Dict[str,Any]]:
-        print()
-        print(self.data_filter())
         return self.data_filter()
