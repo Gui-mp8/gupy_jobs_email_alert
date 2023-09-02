@@ -1,6 +1,6 @@
 # Gupy job alert
 
-This project has the goal to send an daily email alert from the desired jobs that you want from gupy.
+This project has the goal to send an email alert from the desired jobs that you want.
 
 ## Previous Information
 It's necessary to install the [chrome-driver](https://chromedriver.chromium.org/downloads). Check your chrome atualization.
@@ -48,4 +48,13 @@ After setting config.json and .env, just run the code below
 
 ```
 make run
+```
+
+## Running the Program
+
+```
+docker build -t gupy-jobs-alert .
+```
+```
+docker run gupy-jobs-alert
 ```
