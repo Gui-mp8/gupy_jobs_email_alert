@@ -32,6 +32,6 @@ class WebScraper:
             self.data.extend(data_list)
 
         if not self.data:
-            log().warning("There is no job data available today.")
+            raise log().warning("The class_'s at data_list must be updated")
 
         return self.data

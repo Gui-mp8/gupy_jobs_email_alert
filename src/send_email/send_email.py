@@ -4,6 +4,7 @@ from email.message import EmailMessage
 from datetime import date
 from typing import Dict, List, Any
 
+from utils.logger import log
 
 class SendEmail():
     def __init__(self, config: Dict[str, Any], json_data: List[Dict[str, Any]]) -> None:
@@ -59,4 +60,4 @@ class SendEmail():
             smtp.login(self.user_email, self.password)
             smtp.sendmail(self.user_email, self.receiver_email, self.message.as_string())
 
-        return print("Email sent successfully!")
+        return log().info("Email sent successfully!")
