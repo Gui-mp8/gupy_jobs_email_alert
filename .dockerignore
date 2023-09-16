@@ -2,3 +2,4 @@ test.py
 sample_config.json
 venv/
 .vscode/
+.historic/

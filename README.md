@@ -30,9 +30,10 @@ This project has the goal to send an email alert from the desired jobs that you 
 1 - Change the config.json key values to your respective data.
 
 - **research** = It's the keyword that acess your desired jobs
+- **days_before_today** = It represents the number you want to subtract from today to see the jobs on that day.
 - **user_email** =  Is the email of Who'll send the email.
 - **password** = Your Google App password, that it's generated after the guide at the **Prerequisites**.
-- **receiver_email** = the email that'll receive the message.
+- **receiver_email** = the email or email's that'll receive the message.
 
 2 - Add data to .env based on your credentials
 
