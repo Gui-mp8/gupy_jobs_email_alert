@@ -25,7 +25,7 @@ class SendEmail():
         # Create a HTML table to display the job data
         body = f'''
             <h2>Vagas de hoje:</h2>
-            <table border="1">
+            <table border="1" style="font-size: 11px;">
                 <tr>
                     <th>Empresa</th>
                     <th>Cargo</th>
