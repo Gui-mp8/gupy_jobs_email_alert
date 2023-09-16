@@ -3,4 +3,4 @@ venv/
 config.json
 .env
 .vscode/
-.historic/
+historic/
