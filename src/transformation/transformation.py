@@ -12,12 +12,12 @@ class Transform():
     def change_type(self) -> List[Dict[str,Any]]:
         data_list = [
             {
-                'company_name': data.company_name,
-                'job_name': data.job_name,
-                'job_location': data.job_location,
-                'job_type': data.job_type,
-                'job_date_creation': datetime.strptime(data.job_date_creation.replace('/', '-'), '%d-%m-%Y').date().strftime('%Y-%m-%d') if data.job_date_creation else None,
-                'job_link': data.job_link
+                'company_name': data["company_name"],
+                'job_name': data["job_name"],
+                'job_location': data["job_location"],
+                'job_type': data["job_type"],
+                'job_date_creation': datetime.strptime(data["job_date_creation"].replace('/', '-'), '%d-%m-%Y').date().strftime('%Y-%m-%d') if data["job_date_creation"] else None,
+                'job_link': data["job_link"]
             }
             for data in self.json_data
         ]
