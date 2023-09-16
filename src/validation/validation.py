@@ -17,8 +17,8 @@ class DataValidator:
 
         for item in list_dict_data:
             try:
-                ValidatedData(**item)  # Try to create an instance of ValidatedData with the dictionary
-                validated_data.append(item)  # If successful, add it to the validated data list
+                ValidatedData(**item)
+                validated_data.append(item)
             except ValidationError as e:
                 log().error(f"Validation error: {e}")
 
