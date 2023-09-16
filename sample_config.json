@@ -1,6 +1,7 @@
 {
     "research":["write what you want to research"],
+    "days_before_today": 0,
     "user_email":"your email",
     "password":"google app password",
-    "receiver_email":"receiver email"
+    "receiver_email":["receiver email"]
 }
