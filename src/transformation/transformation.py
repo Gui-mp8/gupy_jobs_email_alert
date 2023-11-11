@@ -22,6 +22,7 @@ class Transform():
             for data in self.json_data
         ]
         log().info('Data Treated part 1')
+        # log().info(data_list)
         return data_list
 
     def data_filter(self) -> List[Dict[str, Any]]:
@@ -33,6 +34,7 @@ class Transform():
             )
         )
         log().info(f'Data Treated part 2')
+        # log().info(filtered_data)
 
         return filtered_data
 
