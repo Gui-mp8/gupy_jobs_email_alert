@@ -24,6 +24,7 @@ class DataValidator:
 
         if not validated_data:
             log().info("No valid job data found")
+            return
         else:
             log().info("Validation Completed!")
 
